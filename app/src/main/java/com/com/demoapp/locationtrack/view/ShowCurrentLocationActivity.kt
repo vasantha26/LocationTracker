@@ -31,6 +31,8 @@ import com.google.android.libraries.places.api.Places
 
 class ShowCurrentLocationActivity : AppCompatActivity() , OnMapReadyCallback {
 
+
+
     private val pERMISSION_ID = 42
     lateinit var mFusedLocationClient: FusedLocationProviderClient
     lateinit var mMap: GoogleMap
