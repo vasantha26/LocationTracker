@@ -47,13 +47,7 @@ class ShowCurrentLocationActivity : AppCompatActivity() , OnMapReadyCallback {
         // Fetching API_KEY which we wrapped
         val ai: ApplicationInfo = applicationContext.packageManager
             .getApplicationInfo(applicationContext.packageName, PackageManager.GET_META_DATA)
-//        val value = ai.metaData["AIzaSyD9wMjxL25qrKNtvX-3H61CZJEcErfWPo8"]
-//        val apiKey = value.toString()
-//
-//        // Initializing the Places API with the help of our API_KEY
-//        if (!Places.isInitialized()) {
-//            Places.initialize(applicationContext, apiKey)
-//        }
+
 
         // Assuming this is in a class where you need the API key
         val apiKey = getString(R.string.google_maps_api_key)

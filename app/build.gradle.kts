@@ -8,7 +8,6 @@ plugins {
     id("kotlin-parcelize")
     id("realm-android")
     id("com.google.gms.google-services")
-//apply plugin: 'com.google.gms.google-services'
 }
 
 

@@ -156,8 +156,6 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
           findUser(email.toString(),userName.toString(),true)
 
-           //
-
         }
     }
 
