@@ -1,3 +1,5 @@
+import java.util.Properties
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
@@ -6,7 +8,7 @@ plugins {
     id("kotlin-parcelize")
     id("realm-android")
     id("com.google.gms.google-services")
-
+//apply plugin: 'com.google.gms.google-services'
 }
 
 
@@ -14,14 +16,28 @@ android {
     namespace = "com.demoapp.locationtrack"
     compileSdk = 34
 
+    // Load properties from local.defaults.properties file
+    val localPropertiesFile = file("local.defaults.properties")
+    val localProperties = Properties().apply {
+        load(localPropertiesFile.inputStream())
+    }
+
+    // Access the MAPS_API_KEY property
+    val mapsApiKey: String? = localProperties.getProperty("MAPS_API_KEY")
+
     defaultConfig {
         applicationId = "com.demoapp.locationtrack"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
-//location-tracker-422014
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        // Assign the API key to your application's manifest placeholders
+        manifestPlaceholders["MAPS_API_KEY"] = mapsApiKey.toString()
+
+        // Add your API key as a string resource
+        resValue("string", "google_maps_api_key", mapsApiKey.toString())
     }
 
     buildTypes {
@@ -97,4 +113,9 @@ dependencies {
     implementation ("com.google.android.gms:play-services-auth:20.0.0")
 
 
+
+
 }
+
+
+
